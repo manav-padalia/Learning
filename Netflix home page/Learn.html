@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Netflix</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <li class="logo"><img
+        src="data:image/png;base64,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">
+    </li>
+    <button class="buttons">Sign In</button>
+
+  </div>
+  <div class="main">
+    <div class="area">
+      <h1>Unlimited movies, TV shows and more.</h1>
+      <h3>Watch anywhere, Cancel anytime.
+      </h3>
+
+      <div class="search">
+        <input type="text" class="box" placeholder="Email"><br>
+        <span>
+        <button class="try">
+          FET STARTED >
+        </button></span>
+      </div>
+      <h4>Ready to watch? Enter your email to create or access your account
+      </h4>
+    </div>
+  </div>
+
+  <div class="container1">
+    <div class="text">
+      <h1>Enjoy on your TV.
+      </h1>
+      <p>
+        Watch on Smart TVs, Playstation, Xbox, <br>
+        Chromecast, Apple TV, Blu-ray players, and<br>
+        more.
+      </p>
+    </div>
+    <div class="image">
+      <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png">
+    </div>
+  </div>
+
+  <div class="container1">
+
+    <div class="image">
+      <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile.png">
+    </div>
+    <div class="text">
+      <h1>Download your shows to watch on the go.
+      </h1>
+      <p>
+        Save your data and watch all your favorites offline.
+      </p>
+    </div>
+
+  </div>
+  <div class="container1">
+    <div class="text">
+      <h1>Watch everywhere.
+
+      </h1>
+      <p>
+        Stream unlimited movies and TV shows on <br>your phone, tablet, laptop, and TV without paying more.
+
+      </p>
+    </div>
+    <div class="image">
+      <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png">
+    </div>
+  </div>
+
+  <div class="container1">
+
+    <div class="image">
+      <img src="https://occ-0-3061-2186.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABYjXrxZKtrzxQRVQNn2aIByoomnlbXmJ-uBy7du8a5Si3xqIsgerTlwJZG1vMpqer2kvcILy0UJQnjfRUQ5cEr7gQlYqXfxUg7bz.png?r=420">
+    </div>
+    <div class="text">
+      <h1>Create profiles for children.
+      </h1>
+      <p>
+        Send children on adventures with their favourite characters in a space made just for them—free with your membership.
+      </p>
+    </div>
+  </div>
+  <div class="question">
+    <h1>Frequently Asked Questions
+    </h1>
+    <div class="quest">
+      <div class="textbox">What is Netflix?</div>
+      <i class="las la-plus"></i>
+    </div>
+    <div class="quest">
+      <div class="textbox">How much does Netflix cost?</div>
+      <i class="las la-plus"></i>
+    </div>
+    <div class="quest">
+      <div class="textbox">Where can I watch?</div>
+      <i class="las la-plus"></i>
+    </div>
+    <div class="quest">
+      <div class="textbox">How do I cancel?</div>
+      <i class="las la-plus"></i>
+    </div>
+    <div class="quest">
+      <div class="textbox">What can I watch on Netflix??</div>
+      <i class="las la-plus"></i>
+    </div>
+    <div class="quest">
+      <div class="textbox">What is Netflix?</div>
+      <i class="las la-plus"></i>
+    </div>
+    <div class="search1">
+      <input type="text" class="box1" placeholder="Email">
+      <button class="try1">
+        GET STARTED >
+      </button>
+
+    </div>
+    <h4>Ready to watch? Enter your email to create or access your account
+    </h4>
+  </div>
+  <div class="footer">
+
+
+    <div class="footercon">
+      <div class="flex1">
+        <h5>Questions? Call 1-866-579-7172
+        </h5>
+      </div>
+
+      <ul class="list1">
+        <li><a href="">FAQ</a></li>
+        <li><a href="">Investor Relation</a></li>
+        <li><a href="">Ways to Watch</a></li>
+        <li><a href="">Corporate Information</a></li>
+        <li><a href="">Netflix Originals</a></li>
+      </ul>
+      <ul class="list1">
+        <li><a href="">Home</a></li>
+        <li><a href="">Jobs</a></li>
+        <li><a href="">Terms of Use</a></li>
+        <li><a href="">Contact Us</a></li>
+        <li><a href="">#</a></li>
+      </ul>
+      <ul class="list1">
+        <li><a href="">Account</a></li>
+        <li><a href="">Redeem Gift Cards</a></li>
+        <li><a href="">Privacy</a></li>
+        <li><a href="">Speed Test</a></li>
+        <li><a href="">#</a></li>
+
+      </ul>
+      <ul class="list1">
+        <li><a href="">Media Center<< /a>
+        </li>
+        <li><a href="">Buy Gift Cards</a></li>
+        <li><a href="">Cookie Preferences</a></li>
+        <li><a href="">Legal Notices</a></li>
+        <li><a href="">#</a></li>
+
+      </ul>
+
+    </div>
+
+  </div>
+  <div class="end">
+    <h2>
+      Netflix ind
+    </h2>
+    <h2>
+    </h2>
+  </div>
+</body>
+
+</html>

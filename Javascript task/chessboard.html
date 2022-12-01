@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Chess Board</title>
+    <link rel="stylesheet" href="chessboard.css">
+</head>
+<body>
+    <div id="cont">
+        <div id="chess"></div>
+        <script>
+            var chessboard = document.getElementById('chess');
+            for (var i = 0; i < 8; i++) {
+                for (var j = 0; j < 8; j++) {
+                    var chessSquare = document.createElement('div');
+                    chessSquare.className = 'square-box';
+                    if ((i + j) % 2 == 0) {
+                        chessSquare.style.backgroundColor = '#fff';
+                    }
+                    chess.appendChild(chessSquare);
+                }
+            }
+        </script>
+    </div>
+ </body>
+ </html>

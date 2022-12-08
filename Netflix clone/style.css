@@ -22,22 +22,30 @@ header {
   justify-content: center;
   align-items: center;
 }
-@media screen and (min-width: 550px) {
+/* @media screen and (max-width: 550px) {
   header {
     padding: 26px 56px;
   }
-}
+} */
 header a.logo {
   display: block;
 }
 header .logo img {
   height: 47px;
-  /* padding-left: 15%; */
   width: 106%;
 }
 @media screen and (min-width: 550px) {
   header.logo img {
     height: 33px;
+  }
+}
+@media screen and (max-width: 550px) {
+  header {
+    /* padding: 26px 56px; */
+  }
+  .logo{
+    width: 70px;
+    /* height: 0px; */
   }
 }
 header div + div {
@@ -49,14 +57,12 @@ header a.button {
   text-decoration: none;
   padding: 7px 17px;
   border-radius: 3px;
-  /* margin-right: 2%; */
 }
 header select {
   background: transparent;
   color: #fff;
-  padding: 6px 0 6px 20px;
+  padding: 10px 0 10px 20px;
   border-radius: 3px;
-  height: 43px;
 }
 header div.select {
   display: inline-block;
@@ -68,23 +74,23 @@ header div.select {
   }
 }
 header div.select svg {
-  height: 24px;
+  height: 20px;
   fill: #fff;
   position: absolute;
-  margin-left: 2px;
+  margin-left: 3px;
   margin-top: 9px;
 }
 div.splash {
-  height: 730px;
   position: relative;
-  background: radial-gradient(
+  /* background: radial-gradient(
     ellipse,
     #00000000 5%,
     #1e1d1d61 30%,
     #00000096 50%,
     #00000032 70%,
     #000000d8 90%
-  )
+  ); */
+  height: 75vh;
 }
 div.splash div.gradient {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), 100%);
@@ -101,6 +107,14 @@ div.splash div.background img {
   width: 100%;
   opacity: 0.53;
   object-fit: cover;
+  background: radial-gradient(
+    ellipse,
+    #00000000 5%,
+    #1e1d1d61 30%,
+    #00000096 50%,
+    #00000032 70%,
+    #000000d8 90%
+  );
 }
 div.splash div.content {
   padding: 221px 20px;
@@ -111,7 +125,7 @@ div.splash div.content {
   text-align: center;
   position: relative;
   z-index: 3;
-  padding-top: 242px;
+  padding-top: 191px;
 }
 div.splash h1,
 div.splash h2,
@@ -146,7 +160,7 @@ div.splash h3 {
 }
 div.cta form {
   display: grid;
-  margin: 20px 0px 0;
+  margin: 20px 20px 0;
   position: relative;
   grid-template-columns: 1fr;
   row-gap: 15px;
@@ -161,13 +175,13 @@ div.cta input {
   padding: 10px;
   font-size: 1.2rem;
   width: 100%;
-  height: 70px;
+  height: 69px;
   padding-left: 15px;
 }
 div.cta input ~ span {
   position: absolute;
-  left: 14px;
-  top: 27px;
+  left: 17px;
+  top: 25px;
   z-index: 3;
   color: #aaa;
   transition: all 0.15s ease;
@@ -191,7 +205,7 @@ div.cta button {
 @media screen and (min-width: 550px) {
   div.cta button {
     font-size: 1.624rem;
-    padding: 19px 26px;
+    padding: 19px 34px;
     border-radius: 0;
   }
 }
@@ -266,8 +280,8 @@ section div.texts h2 {
 }
 @media screen and (max-width: 1024px) {
   .media.s1 video {
-    width: 50%;
-    top:90px;
+    width: 74%;
+    top:46px;
     /* left: 82px; */
   }
 }
@@ -284,7 +298,7 @@ section div.texts h2 {
     /* left: 82px; */
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .media.s1 video {
     width: 44%;
     top:60px;
@@ -292,6 +306,12 @@ section div.texts h2 {
   }
 }
 @media screen and (max-width: 550px) {
+  .media.s1 video {
+    width: 49%;
+    top:35px;
+  }
+}
+@media screen and (max-width: 320px) {
   .media.s1 video {
     width: 49%;
     top:35px;
@@ -326,11 +346,52 @@ section div.download {
   gap: 15px;
   grid-template-columns: max-content 1fr max-content;
 }
-@media screen and (max-width: 550px) and (max-width: 1064px) {
+@media screen and (max-width: 1024px){
   section div.download {
     height: 82px;
-    left: 15%;
+    left: 1%;
     width: 309px;
+  }
+}
+@media screen and (max-width: 992px){
+  section div.download {
+    height: 82px;
+    left: 39%;
+    width: 309px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section div.download {
+    height: 82px;
+    left: 15%;
+    width: 250px;
+  }
+}
+@media screen and (max-width: 550px){
+  section div.download {
+    height: 82px;
+    left:21%;
+    width: 309px;
+  }
+}
+@media screen and (max-width: 425px){
+  section div.download {
+    height: 79px;
+    left: 11%;
+    width: 309px;
+  }
+}
+@media screen and (max-width: 375px){
+  section div.download {
+    height: 79px;
+    left: 0%;
+    width: 309px;
+  }
+}
+@media screen and (max-width: 320px){
+  section div.download {
+    height: 79px;
+    width: 276px;
   }
 }
 /* @media screen and (max-width:550px) {
@@ -523,6 +584,7 @@ div.faq form div + div{
 }
 @media screen and (min-width:550px) and (min-width:1024px){
   div.faq form{
+    min-width: 30%;
     max-width:40%;
   }
 }
@@ -555,11 +617,17 @@ table{
   width:75%;
   border-spacing:18px;
   overflow-x:auto;
+  padding-left: 18%;
+  /* padding-right: 1%; */
 }
-@media screen and (min-width: 550px) {
+@media screen and (max-width: 550px) {
   footer table{
-     padding-left: 18%;
-     padding-right: 1%;
+    padding-left: 1%;
+  }
+}
+@media screen and (max-width: 320px) {
+  footer table{
+    -webkit-border-horizontal-spacing: 12px
   }
 }
 tr{
@@ -596,16 +664,9 @@ footer div.select svg {
   margin-top: 14px;
 }
 .india{
-  /* padding-left:2%; */
+  padding-left:2%;
   padding-top: 2%;
   color:rgb(113, 111, 111);
-}
-@media screen and (min-width: 550px)  {
-  footer table{
-    align-items: center;
-    align-content: center;
-    padding-left: 18%;
-  }
 }
 @media screen and (min-width: 550px)  {
   .india{
@@ -619,3 +680,7 @@ footer div.select svg {
     padding-left: 4%;
   }
 }
+
+.quecall:hover{
+  text-decoration: underline;
+ }

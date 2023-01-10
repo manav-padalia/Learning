@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "manavp",
+    "password": "M04eRtb83ibL9yy3pP6vlRQYVXtbvbvbv",
+    "database": "manavp",
+    "host": "15.206.7.200",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,23 @@
+<%- include('layouts/main') %>
+
+
+<h1 class="cursor-pointer text-center pt-3 h-20 bg-gradient-to-r from-blue-900 to-gray-900 uppercase hover:bg-yellow-300 text-5xl font-serif font-thin subpixel-antialiased text-zinc-300 hover:text-zink-300 decoration-wavy">Edit Course</h1>
+<p><br><br></p>
+<a href="/" class="btn text-white text-center bg-cyan-900 hover:bg-cyan-800"> All Courses</a>
+<p><br><br></p>
+<form action="/update/<%= data.id%>" method="post">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Course_Name</label>
+        <input type="text" name="Course_name" class="form-control" value ="<%= data.Course_name%>" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Duration</label>
+        <input type="text" name="Duration" class="form-control" value = "<%= data.Duration%>" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Fees</label>
+        <input type="text" name="Fees" class="form-control" value = "<%= data.Fees%>" required> 
+    </div>
+    <p><br><br></p>
+    <button type="submit" class="btn btn text-white bg-blue-900 hover:bg-yellow-900">Edit a Course Details.</button>
+</form>

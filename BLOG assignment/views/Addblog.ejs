@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Link title icon -->
+  <link rel="icon" href="https://revenuearchitects.com/wp-content/uploads/2017/02/Blog_pic.png" type="image/icon type">
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="/stylesheets/homestyle.css">
+
+  <!-- Link bootstrap icons  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+  <!-- Link bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Add new blog</title>
+</head>
+
+<body>
+  <!-- Left sidebar -->
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header"><a href="/admin" class="text-white">
+          <h2>Blinging Blogs</h2>
+        </a>
+      </div>
+
+      <ul class="list-unstyled components text-white">
+        <!-- <p></p> -->
+        <li>
+          <a href="/admin" class="text-white m-2">All Blog</a>
+        </li>
+
+        <!-- Only for Admin -->
+        <li>
+          <a href="/admin/addblog" class="text-white m-2">Add New Blog</a>
+        </li>
+
+
+        <li>
+          <a href="/admin/category" class="text-white m-2">All Categories</a>
+        </li>
+
+
+        <!-- Only for Admin -->
+        <li>
+          <a href="/admin/addcategory" class="text-white m-2">Add New Categories</a>
+        </li>
+
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+        <li>
+          <a href="/" class="download" target="_blank">Go to User panel</a>
+        </li>
+        <li>
+          <a href="/logout" class="article">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content with upper navbar  -->
+    <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-info ">
+            <i class="bi bi-arrow-bar-left"></i>
+            <!-- <i><<<</i> -->
+          </button>
+      </nav>
+      <form action="/admin/addblog" method="post" enctype="multipart/form-data">
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="" name="blogtitle" class="form-control" required />
+          <label class="form-label" for="form6Example3">Blog Title</label>
+        </div>
+
+
+
+        <!-- Select category of bloc -->
+        <div class="form-group">
+          <select class="form-control" name="blogcategory" id="exampleFormControlSelect1" required>
+            <% category.forEach((row, index)=>{ %>
+              <option value="<%= row._id %>"><%= row.categoryname %></option>
+              <% }) %>
+          </select>
+          <label for="exampleFormControlSelect1">Select category</label>
+
+        </div>
+       
+        <!-- Blog discription input -->
+        <div class="form-outline mb-4">
+          <textarea name="blogdiscription" class="form-control" id="form6Example7" rows="4" required></textarea>
+          <label class="form-label" for="form6Example7">Blog Discription</label>
+        </div>
+
+        <input type="file" class="form-control form-control-lg" name="image" id="customFile" />
+        <label class="form-label">Upload Blog Related Image</label><br><br>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Post Blog</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer font-small text-white bg-secondary">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2023 Copyright:
+      <a class="text-white" href="/"> Blinging Blogs</a>
+    </div>
+    <!-- Copyright -->
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#sidebarCollapse').on('click', function() {
+          $('#sidebar').toggleClass('active');
+        });
+      });
+    </script>
+
+
+    <!-- css adding by script -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>

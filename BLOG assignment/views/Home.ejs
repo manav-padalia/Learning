@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Link title icon -->
+  <link rel="icon" href="https://revenuearchitects.com/wp-content/uploads/2017/02/Blog_pic.png" type="image/icon type">
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="/stylesheets/homestyle.css">
+
+  <!-- Link bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Link bootstrap icons  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+  <title>Guest Panel</title>
+</head>
+
+<body>
+  <!-- Left sidebar -->
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header"><a href="/" class="text-white">
+          <h2>Blinging Blogs</h2>
+        </a>
+      </div>
+
+      <ul class="list-unstyled components text-white">
+        <li>
+          <a href="/" class="text-white m-2">All Blog</a>
+        </li>
+
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+        <li>
+          <a href="/login" class="download">Login as an admin</a>
+        </li>
+        <!-- <li>
+          <a href="/login" class="article">Logout</a>
+        </li> -->
+      </ul>
+    </nav>
+
+    <!-- Page Content with upper navbar  -->
+    <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-info ">
+            <i class="bi bi-arrow-bar-left"></i>
+            <!-- <i><<<</i> -->
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-chevron-double-down"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li id="home" class="nav-item active">
+                <a class="nav-link mr-5 " href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mr-5 mb-2" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <form class="d-flex" action="/search" method="GET">
+                  <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search" id="search" name="search" required>
+                      <!-- <input type="submit"> -->
+                      <button type="submit" class="btn btn-light"><i class="bi bi-search"></i></button>
+                  </div>
+              </form>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h1>Hello Welcome to Blonging Blog.</h1>
+      <br><br>
+
+      <% if(blogs != ''){ %>
+      <% blogs.forEach((row, index)=>{ %>
+
+
+      <div class="card mb-3" style="max-width: 1000px;">
+        <div class="row g-0">
+          <div class="col-md-4" style="display: flex; justify-content: center;">
+            <img src="<%= row.image %>" class="img-fluid rounded-start" alt="">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="post-preview">
+                <a href="/showblog/<%= row.slug %>">
+                  <h2 class="post-title">
+                    <%= row.blogtitle %>
+                  </h2>
+                  <h3 class="post-subtitle">
+                    <%= row.blogcategory.categoryname %>
+                  </h3>
+                </a>
+                <p class="post-meta">Posted on <%= row.uploaddate.toDateString()  %></p>
+              </div>
+              <hr style="border-top: 1px dotted black;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+
+      <%   }else{ %>
+      <h1 class="text-center text-primary mt-5">No blogs found in database</h1>
+
+      <% } %>
+
+
+
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small blue bg-secondary">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center text-white py-3">© 2023 Copyright:
+      <a class="text-white" href="/"> Blinging Blogs</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#sidebarCollapse').on('click', function() {
+        $('#sidebar').toggleClass('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Design by foolishdeveloper.com -->
+  <title>Glassmorphism login Form Tutorial in html css</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <!--Stylesheet-->
+  <!-- <link rel="stylesheet" href="/styles/importer.less"> -->
+
+</head>
+
+<body style="background-color: #080710;">
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form class="signupform" style="color: white;" action="/newuser" method="post">
+    <h3>Signup Here</h3>
+
+    <label for="firstname">First Name</label>
+    <input name="firstname" style="color: white;" type="text" placeholder="First Name" required>
+
+    <label for="lastname">Last Name</label>
+    <input name="lastname" style="color: white;" type="text" placeholder="Last Name" required>
+
+    <label for="username">Email</label>
+    <input name="email" style="color: white;" type="email" placeholder="Email address" required>
+
+    <% flash.get('already').forEach(function (message) { %>
+    <div style="color:rgb(255, 0, 0);">
+      <%= message %>
+    </div>
+    <% }) %>
+
+    <label for="password">Password</label>
+    <input name="password" style="color: white;" type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_=+-]).{8,}" title="Must contain at least - one number, one uppercase, one lowercase letter and with special character also 8 or more characters require." required>
+
+    <button type="submit">Create Account</button>
+    <br><br>
+    <div>
+      <h5>Already have account?? <br> <a style="color: white;" href="/login">Login Here</a></h5>
+    </div>
+  </form>
+</body>
+
+</html>

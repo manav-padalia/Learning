@@ -1,0 +1,137 @@
+<!--
+This is your default homepage.
+For more information, see:
+• https://sailsjs.com/documentation/concepts/views
+• https://sailsjs.com/documentation/concepts/routes
+-->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<div class="header">
+
+  <!--Content before waves-->
+  <div class="inner-header flex">
+    <!--Just the logo.. Don't mind this-->
+    <svg version="1.1" class="logo" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
+      <path fill="#FFFFFF" stroke="#000000" stroke-width="10" stroke-miterlimit="10" d="M57,283" />
+      <g>
+        <path fill="#fff" d="M250.4,0.8C112.7,0.8,1,112.4,1,250.2c0,137.7,111.7,249.4,249.4,249.4c137.7,0,249.4-111.7,249.4-249.4
+  C499.8,112.4,388.1,0.8,250.4,0.8z M383.8,326.3c-62,0-101.4-14.1-117.6-46.3c-17.1-34.1-2.3-75.4,13.2-104.1
+  c-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3,62.4c-19.8,19.1-51.6,26.9-100.2,24.6l1.8-39.7		c35.9,1.6,59.7-2.9,70.8-13.6c8.9-8.6,11.1-22.9,13.5-39.6c6.3-42,14.8-99.4,141.4-99.4h41L333,166c-12.6,16-45.4,68.2-31.2,96.2	c9.2,18.3,41.5,25.6,91.2,24.2l1.1,39.8C390.5,326.2,387.1,326.3,383.8,326.3z" />
+      </g>
+    </svg>
+    <h1>Expense Manager</h1>
+  </div>
+
+  <!--Waves Container-->
+  <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+  </div>
+  <!--Waves end-->
+
+</div>
+<!--Header ends-->
+<br><br>
+<!--Content starts-->
+<div class="container">
+  <div class="d-flex justify-content-end">
+    <a href="/logout" class="btn btn-dark">Logout</a>
+  </div>
+  <div class=" justify-content-center">
+    <h3>Account Details</h3><br>
+    <label for="account">Account Name</label>
+    <form class="d-flex" action="/add" method="post">
+      <input class="text-black" style="border: 1px solid; max-width: 500px; height: 40px;" type="text" name="account" placeholder="Enter new account name" required>
+      <button style="width: 150px; height: 40px;" class="btn btn-secondary" type="submit">Add</button>
+      <br>
+    </form>
+    
+  </div>
+  <% flash.get('accsuccess').forEach(function (message) { %>
+  <div style="color:rgb(16, 132, 0);">
+    <%= message %>
+  </div>
+  <% }) %>
+  <% flash.get('accunsuccess').forEach(function (message) { %>
+    <div style="color:rgb(255, 87, 87);">
+      <%= message %>
+    </div>
+    <% }) %>
+  <div class="content table-responsive-sm mt-5">
+    <% flash.get('accdelete').forEach(function (message) { %>
+    <div style="color:rgb(255, 0, 0);">
+      <%= message %>
+    </div>
+    <% }) %>
+
+    <% flash.get('accupdate').forEach(function (message) { %>
+    <div style="color:rgb(0, 153, 255);">
+      <%= message %>
+    </div>
+    <% }) %>
+    <% flash.get('accnotupdate').forEach(function (message) { %>
+      <div style="color:rgb(184, 0, 0);">
+        <%= message %>
+      </div>
+      <% }) %>
+
+
+    <% if(account!= ''){ %>
+    <table class="table">
+      <thead class="table-dark ">
+        <tr>
+          <!-- <th scope="col">Id</th> -->
+          <th></th>
+          <th scope="col">Account Name</th>
+          <th scope="col">Balance</th>
+          <th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-active">
+        <% account.forEach((account,index)=>{ %>
+        <tr>
+          <th scope="row"><%= index+1 %></th>
+          <td><%= account.account %></td>
+          <td><%= account.balance %> ₹</td>
+          <td>
+            <div class="btn-group me-2" role="group" aria-label="Second group">
+              <!-- <button type="button" class="btn btn-outline-info"><i class="bi bi-eye"></i></button> -->
+              <a href="/transactiondetails/<%= account.id %>">
+                <button type="button" class="btn btn-outline-info"><i class="bi bi-eye"></i></button>
+              </a>
+              <a href="/edit/<%= account.id %>">
+                <button type="button" class="btn btn-outline-success"><i class="bi bi-pencil-square"></i></i></button>
+              </a>
+              <a href="/delete/<%= account.id %>">
+                <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
+              </a>
+            </div>
+          </td>
+          <!-- <td>@mdo</td> -->
+
+        </tr>
+        <% }) %>
+
+      </tbody>
+    </table>
+    <%   }else{ %>
+    <h1 class="text-center text-info mt-5">No account found in database</h1>
+
+    <% } %>
+
+  </div>
+</div>
+<!--Content ends-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
